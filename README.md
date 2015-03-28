@@ -1,4 +1,4 @@
-nodeChatty
+nodeChat
 ==========
 
 A node.js based chat application.
