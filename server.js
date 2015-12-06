@@ -3,6 +3,7 @@ var mongo = require('mongodb').MongoClient,
 	express = require('express'),
 	app = express(),
 	http = require('http').Server(app),
+	config = reqquire('config'),
 	client = require('socket.io').listen(http).sockets;
 
 
@@ -31,7 +32,7 @@ var escape = function(html){
     return escapedHtml;              
 };
 
-mongo.connect('mongodb://akshay:Yahska_4594@kahana.mongohq.com:10003/chat', function(err, db){
+mongo.connect(config.mongo, function(err, db){
 	if(err) 
 		console.log('Connection to mongohq failed!');
 	client.on('connection', function(socket){
